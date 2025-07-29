@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'reusable_widgets.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -29,26 +30,22 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
 
-
-
-
   void _handleRegister() {
-    final name = _nameController.text;
-    final email = _emailController.text;
-    final password = _passwordController.text;
-
-    if (name.isEmpty || email.isEmpty || password.isEmpty || _selectedDate == null) {
+    if (_nameController.text.isEmpty ||
+        _emailController.text.isEmpty ||
+        _passwordController.text.isEmpty ||
+        _selectedDate == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Mohon lengkapi semua data"))
+        const SnackBar(content: Text("Mohon lengkapi semua data")),
       );
       return;
     }
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Registrasi berhasil!"))
+      const SnackBar(content: Text("Registrasi berhasil!")),
     );
 
-    Navigator.pop(context); 
+    Navigator.pop(context);
   }
 
   @override
@@ -61,33 +58,24 @@ class _RegisterPageState extends State<RegisterPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text("Nama"),
-            TextField(
+            ReusableTextField(
               controller: _nameController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Masukkan nama lengkap",
-              ),
+              hintText: "Masukkan nama lengkap",
             ),
             const SizedBox(height: 10),
 
             const Text("Email / Username"),
-            TextField(
+            ReusableTextField(
               controller: _emailController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Masukkan email atau username",
-              ),
+              hintText: "Masukkan email atau username",
             ),
             const SizedBox(height: 10),
 
             const Text("Password"),
-            TextField(
+            ReusableTextField(
               controller: _passwordController,
+              hintText: "Masukkan password",
               obscureText: true,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Masukkan password",
-              ),
             ),
             const SizedBox(height: 10),
 
@@ -124,13 +112,11 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(height: 20),
 
             Center(
-              child: ElevatedButton(
+              child: ReusableButton(
                 onPressed: _handleRegister,
-                child: const Text("Daftar"),
+                label: "Daftar",
               ),
             ),
-
-
           ],
         ),
       ),
