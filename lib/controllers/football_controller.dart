@@ -16,10 +16,10 @@ class Player {
 
 class FootballController extends GetxController {
   var players = <Player>[
-    Player(image: "assets/placeholder.png", name: "Pak Aji", position: "Coach", number: 0),
-    Player(image: "assets/placeholder.png", name: "Neymar", position: "Forward", number: 10),
-    Player(image: "assets/placeholder.png", name: "Messi", position: "Forward", number: 30),
-    Player(image: "assets/placeholder.png", name: "Ronaldo", position: "Forward", number: 7),
+    Player(image: "assets/placeholder.png", name: "Pak Aji", position: "CF", number: 07),
+    Player(image: "assets/placeholder.png", name: "Neymar", position: "SS", number: 10),
+    Player(image: "assets/placeholder.png", name: "Messi", position: "RWF", number: 30),
+    Player(image: "assets/placeholder.png", name: "Ronaldo", position: "LWF", number: 7),
   ].obs;
 
   void updatePlayer(int index, Player updatedPlayer) {
