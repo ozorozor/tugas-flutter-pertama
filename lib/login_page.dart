@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'home.dart'; // pastikan getHomePage() ada di sini
-import 'register_page.dart'; // pastikan RegisterPage() ada dan memiliki konstruktor kosong
-import 'reusable_widgets.dart'; // pastikan widget ReusableTextField dan ReusableButton ada
-
+import 'home.dart'; 
+import 'register_page.dart';
+import 'reusable_widgets.dart'; 
+import 'widget_button.dart';
+import 'widget_textfields.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -65,28 +66,30 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const Text("Please login using your email and password"),
               const SizedBox(height: 16),
-              ReusableTextField(
+              CustomTextfield(
                 controller: _emailController,
-                hintText: 'Email',
+                labeltext: 'Email',
               ),
               const SizedBox(height: 16),
-              ReusableTextField(
+              CustomTextfield(
                 controller: _passwordController,
-                hintText: 'Password',
-                obscureText: true,
+                labeltext: 'Password',
+                isPassword: true,
               ),
               const SizedBox(height: 24),
               Center(
-                child: ReusableButton(
+                child: CustomButton(
+                  text: "Login",
+                  textColor: Colors.black,
                   onPressed: _handleLogin,
-                  label: "Login",
                 ),
               ),
               const SizedBox(height: 16),
               Center(
-                child: ReusableButton(
+                child: CustomButton(
+                  text: "Register",
+                  textColor: Colors.black,
                   onPressed: _goToRegisterPage,
-                  label: "Register",
                 ),
               ),
             ],
@@ -96,3 +99,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
