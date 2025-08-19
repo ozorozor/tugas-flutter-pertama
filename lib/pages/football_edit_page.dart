@@ -15,7 +15,6 @@ class FootballEditPage extends StatelessWidget {
     final int index = args["index"];
     final Player player = args["player"];
 
-    // isi textfield dengan data lama
     nameController.text = player.name;
     positionController.text = player.position;
     numberController.text = player.number.toString();
