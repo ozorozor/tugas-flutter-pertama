@@ -120,4 +120,5 @@ class __homePagStateState extends State<_homePagState> {
     );
   }
 }
+
 Widget getHomePage() => const _homePagState();

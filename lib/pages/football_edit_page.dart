@@ -12,6 +12,16 @@ class FootballEditPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = Get.arguments;
+
+    if (args == null) {
+      return Scaffold(
+        appBar: AppBar(title: Text("Edit Player")),
+        body: Center(
+          child: Text("Pilih player dulu dari Football Page"),
+        ),
+      );
+    }
+
     final int index = args["index"];
     final Player player = args["player"];
 
@@ -44,7 +54,7 @@ class FootballEditPage extends StatelessWidget {
                 footballController.updatePlayer(
                   index,
                   Player(
-                    image: player.image, 
+                    image: player.image,
                     name: nameController.text,
                     position: positionController.text,
                     number: int.tryParse(numberController.text) ?? 0,
